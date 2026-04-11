@@ -31,7 +31,7 @@ spec:
     - name: https
       protocol: HTTPS
       port: 443
-      hostname: bankapp.trainwithshubham.com
+      hostname: bankapp.44-233-169-116.sslip.io
       tls:
         mode: Terminate
         certificateRefs:
@@ -47,7 +47,7 @@ metadata:
   namespace: bankapp
 spec:
   hostnames:
-    - bankapp.trainwithshubham.com
+    - bankapp.44-233-169-116.sslip.io
   parentRefs:
     - group: gateway.networking.k8s.io
       kind: Gateway
