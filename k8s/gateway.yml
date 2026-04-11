@@ -27,15 +27,20 @@ metadata:
   namespace: bankapp
 spec:
   parentRefs:
-    - name: bankapp-gateway
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: bankapp-gateway
   rules:
     - matches:
         - path:
             type: PathPrefix
             value: /
       backendRefs:
-        - name: bankapp-service
+        - group: ""
+          kind: Service
+          name: bankapp-service
           port: 8080
+          weight: 1
 ---
 # Session persistence: Envoy Gateway bypasses K8s Service sessionAffinity and
 # load-balances directly to pod endpoints. Without this policy, requests from
